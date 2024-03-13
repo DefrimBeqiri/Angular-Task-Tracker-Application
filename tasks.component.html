@@ -1,0 +1,12 @@
+<div class="tasks">
+  <h2>Tasks</h2>
+  <div *ngFor="let task of tasks">
+    <div>
+      <input type="checkbox" [checked]="task.completed" (change)="toggleCompleted(task)">
+      <span [ngClass]="{ 'completed': task.completed }">{{ task.text }}</span>
+      <button (click)="deleteTask(task.id)">Delete</button>
+    </div>
+    <div *ngIf="task.category">Category: {{ task.category }}</div>
+    <div *ngIf="task.dueDate">Due Date: {{ task.dueDate }}</div>
+  </div>
+</div>
